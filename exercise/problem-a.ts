@@ -18,6 +18,8 @@ function hasPairSumToK2(a: number[], k: number): boolean {
     for (let i = 0; i < a.length; i++) {
         if (nums.has(k - a[i])) {
             return true
+        } else {
+            nums.add(a[i])
         }
     }
     return false
@@ -30,6 +32,8 @@ function hasPairSumToK2(a: number[], k: number): boolean {
 // TESTS don't touch them
 function test(actual: [number[], number], expected: boolean) {
     if (hasPairSumToK(actual[0], actual[1]) != expected) {
+        console.log('ERROR: hasPairSumToK(', actual[0], ',', actual[1], ') should be', expected)
+    } else if (hasPairSumToK2(actual[0], actual[1]) != expected) {
         console.log('ERROR: hasPairSumToK2(', actual[0], ',', actual[1], ') should be', expected)
     } else {
         console.log('All tests passed!')
